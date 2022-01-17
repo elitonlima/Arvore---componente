@@ -1,0 +1,40 @@
+.arvore {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+    padding: 0 5%;
+}
+
+.arvores-titulo {
+    position: relative;
+    display: flex;
+    width: max(80%);
+    padding: 2em 0;
+    align-self: center;
+    justify-content: center;
+    border-bottom: var(--azul) solid 2px;
+}
+
+.arvores-titulo:after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: 2em;
+    background: var(--azul);
+    position: absolute;
+    bottom: 0;
+    left: calc(50% - 2px);
+    z-index: -1;
+}
+
+.arvores-titulo .celula{
+    width: 160px;
+}
+
+.arvores-conjunto {
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+    padding: 2em 0;
+}

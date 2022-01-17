@@ -1,0 +1,251 @@
+.arvores-unidades {
+    width: 20%;
+}
+
+.arvores-unidades__titulo {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    text-transform: uppercase;
+    padding-bottom: 2em;
+    color: var(--azul);
+}
+
+.arvores-unidades__titulo:before,
+.arvores-unidades__titulo:after {
+    content: "";
+    display: block;
+    width: 2px;
+    height: calc(2em + 2px);
+    background: var(--azul);
+    position: absolute;
+    z-index: -1;
+}
+
+.arvores-unidades__titulo:before{
+    top: calc(-2em - 2px);
+}
+
+.arvores-unidades__titulo:after{
+    bottom: 0;
+}
+
+.arvores-unidades__titulo .celula h1 {
+    font-size: 1em;
+}
+
+.arvores-unidades__unidades {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: 0 auto;
+    margin-bottom: 1.5em;
+}
+
+.arvores-unidades__unidades .celula {
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em 1.2em;
+}
+
+.arvores-unidades__unidades__status {
+    position: absolute;
+    top: -1em;
+    color: #fff;
+    padding: 0.25em 1.25em;
+    border-radius: 20px;
+    text-transform: lowercase;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    width: max-content;
+}
+
+.arvores-unidades__unidades__status[data-status="ativa"]{
+    background: var(--statusAtiva);
+}
+
+.arvores-unidades__unidades__status[data-status="criacao"]{
+    background: var(--statusCriacao);
+}
+
+.arvores-unidades__unidades__status[data-status="extincao"]{
+    background: var(--statusExtincao);
+}
+
+
+.arvores-unidades__unidades__ministro {
+    text-transform: uppercase;
+}
+
+
+.arvores-unidades__unidades__local {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    color: #fff;
+    border-radius: 100%;
+    text-transform: capitalize;
+    line-height: 26px;
+    vertical-align: middle;
+    align-items: center;
+    width: 28px;
+    height: 28px;
+    border: solid 2px;
+}
+
+.arvores-unidades__unidades__local:before,
+.arvores-unidades__unidades__local:after{
+    white-space: nowrap;
+    display: block;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+    transition-property: top, opacity;
+    transition-timing-function: ease-in-out;
+}
+
+.arvores-unidades__unidades__local:before {
+    content: attr(data-local);
+    z-index: 10;
+    background: #000;
+    padding: 0.25em 1.25em;
+    border-radius: 20px;
+    transition-duration: 0.5s;
+}
+
+.arvores-unidades__unidades__local:hover:before{
+    top: calc(-100% - 20px);
+    opacity: 1;
+}
+
+.arvores-unidades__unidades__local:after {
+    content: "";
+    z-index: 9;
+    border: solid 10px transparent;
+    border-top-color: #000;
+    transition-duration: 0.58s;
+}
+
+.arvores-unidades__unidades__local:hover:after{
+    top: -50%;
+    opacity: 1;
+}
+
+.arvores-unidades__unidades__local[data-local="assessoria"]{
+    background: var(--localAssessoria);
+    border-color: var(--localAssessoriaBorda);
+}
+
+.arvores-unidades__unidades__local[data-local="comite"]{
+    background: var(--localComite);
+    border-color: var(--localComiteBorda);
+}
+
+.arvores-unidades__unidades__local[data-local="gabinete"],
+.arvores-unidades__unidades__local[data-local="secretaria"]{
+    background: var(--localGabinete);
+    border-color: var(--localGabineteBorda);
+}
+
+.arvores-unidades__unidades__local[data-local="secretariageral"],
+.arvores-unidades__unidades__local[data-local="secretaria geral"]{
+    background: var(--localSecretariaGeral);
+    border-color: var(--localSecretariaGeralBorda);
+}
+
+
+/*Unidades - Sub Pastas*/
+.arvores-unidades__subPastas {
+    width: 100%;
+    position: relative;
+}
+
+.arvores-unidades__subPastas[open]:before,
+.arvores-unidades__subPastas[open]:after{
+    content: "";
+    background: var(--azul);
+    display: block;
+    position: absolute;
+    top: 1.5em;
+}
+
+.arvores-unidades__subPastas[open]:before {
+    width: 2px;
+    height: calc(100% - (1.5em * 2) - 1px);
+}
+
+.arvores-unidades__subPastas[open]:after {
+    width: 1em;
+    height: 2px;
+}
+
+.arvores-unidades__subPastas > .arvores-unidades__pasta::marker,
+.arvores-unidades__subPastas[open] > .arvores-unidades__pasta::marker {
+    content: "";
+}
+
+.arvores-unidades__pasta{
+    position: relative;
+}
+
+.arvores-unidades__pasta:before {
+    content: "\002B";
+    color: var(--azul);
+    background: var(--marker);
+    border: var(--markerBorda) solid 1px;    
+    border-radius: 100%;
+    height: 20px;
+    width: 20px;
+    display: flex;
+    position: absolute;
+    top: 15px;
+    left: 5%;
+    z-index: 9;
+    text-align: center;
+    justify-content: center;
+    align-items: end;
+}
+
+.arvores-unidades__subPastas[open] > .arvores-unidades__pasta:before{
+    content: "\2212";
+}
+
+.arvores-unidades__pasta .celula {
+    width: 90%;
+}
+
+.arvores-unidades__subPastas + .arvores-unidades__unidades .celula {
+    width: 90%;
+}
+
+.arvores-unidades__subPastas-unidades .celula:before {
+    --tamanho: 15px;
+    content: "\25CF";
+    position: absolute;
+    top: calc(50% - (var(--tamanho) / 2));
+    left: calc(0% - (var(--tamanho) / 2));
+    width: var(--tamanho);
+    height: var(--tamanho);
+    background: var(--marker);
+    border: var(--markerBorda) solid 1px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    color: var(--azul);
+    font-size: .9em;
+}
+
+.arvores-unidades__subPastas-unidades .celula:after {
+    content: "";
+    width: 3.1em;
+    height: 2px;
+    background: var(--azul);
+    position: absolute;
+    left: -3em;
+    z-index: -1;
+}

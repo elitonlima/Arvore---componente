@@ -1,38 +1,51 @@
-.App {
-  text-align: center;
+*, 
+*:before, 
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root{
+    --azulBase: hsla(220, 15%, 92%, 1);
+    --begeBase: hsla(0, 0%, 97%, 1);   
+    
+    --azul: hsla(230, 86%, 61%, 1); 
+
+    /*Status das unidades*/
+    --status: 80%, 60%, 1;
+    --statusAtiva: hsla(167, var(--status));
+    --statusCriacao: hsla(216, var(--status));
+    --statusExtincao: hsla(40, var(--status));
+
+    /*Local das unidades*/
+    --local: 80%, 52%, 1;
+    --localborda: 80%, 72%, 1;
+
+    --assessoria: 32;
+    --localAssessoria: hsla(var(--assessoria), var(--local));
+    --localAssessoriaBorda: hsla(var(--assessoria), var(--localborda));
+
+    --comite: 350;
+    --localComite: hsla(var(--comite), var(--local));
+    --localComiteBorda: hsla(var(--comite), var(--localborda));
+
+    --gabinete: 258;
+    --localGabinete: hsla(var(--gabinete), var(--local));
+    --localGabineteBorda: hsla(var(--gabinete), var(--localborda));
+
+    --secretariaGeral: 216;
+    --localSecretariaGeral: hsla(var(--secretariaGeral), var(--local));
+    --localSecretariaGeralBorda: hsla(var(--secretariaGeral), var(--localborda));
+
+
+    /* Pasta e subpastas */
+    --marker: hsla(240, 16%, 94%, 1);   
+    --markerBorda: hsla(240, 3%, 85%, 1); 
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+body{
+    height: 100vh;
+    background: var(--begeBase);
 }
